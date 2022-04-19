@@ -6,6 +6,7 @@ import Academic from "./components/Academic.vue";
 import { ref , onMounted } from 'vue';
 import { Icon } from '@vicons/utils';
 import {Github,Twitter,GoodreadsG} from '@vicons/fa/';
+import {AlternateEmailFilled} from '@vicons/material'
 
 const bakilan=ref(0);
 const zaman1=ref(false);
@@ -52,6 +53,11 @@ onMounted(() => {
       <div class="drawerItem d4"  @mouseover="bakilan= 4" @click="bakilan= 4" :class="{ highLight: bakilan===4 }"> An Academic</div>
     </div>
     <div id="mediaLinks">
+      <a href="mailto: emrergin2757@yahoo.com" target="_blank">
+        <Icon size="36">        
+          <AlternateEmailFilled />
+        </Icon>
+      </a>
       <a href="https://github.com/emrergin/" target="_blank">
         <Icon size="36">        
           <Github />
