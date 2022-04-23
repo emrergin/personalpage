@@ -4,17 +4,26 @@ import Translator from "./components/Translator.vue";
 import Developer from "./components/Developer.vue";
 import Academic from "./components/Academic.vue";
 import { ref , onMounted } from 'vue';
-import { Icon } from '@vicons/utils';
-import {Github,Twitter,GoodreadsG} from '@vicons/fa/';
-import {AlternateEmailFilled} from '@vicons/material'
+// import { Icon } from '@vicons/utils';
+// import {Github,Twitter,GoodreadsG} from '@vicons/fa/';
+// import {AlternateEmailFilled} from '@vicons/material';
+import { Icon } from '@iconify/vue';
 
 const bakilan=ref(0);
 const zaman1=ref(false);
 const zaman2=ref(false);
+const isTurkish=ref(false);
 
 onMounted(() => {
   setTimeout(() =>zaman1.value=true, 1000);
   setTimeout(() =>zaman2.value=true, 2500);
+  if (window.innerWidth < 960) {
+    let metin=document.getElementById(`welcomeText`);
+    document.getElementById(`photoFrame`).after(metin);
+  }
+  if (navigator.language===`tr-TR`){
+    isTurkish.value=true;
+  }
 })
 
 
@@ -22,10 +31,10 @@ onMounted(() => {
 
 <template>
     <Transition name="solTaraf" >
-      <Author v-if="bakilan===1" class="solTaraf2"/>
+      <Author v-if="bakilan===1" class="solTaraf2" :isTurkish="isTurkish"/>
     </Transition>
     <Transition name="solTaraf" >
-      <Translator v-if="bakilan===2" class="solTaraf2"/>
+      <Translator v-if="bakilan===2" class="solTaraf2" :isTurkish="isTurkish"/>
     </Transition>
 
 
@@ -34,12 +43,21 @@ onMounted(() => {
   {sagBorder:(bakilan===3||bakilan===4)},
   {noBorder: !bakilan}]">
   <div id="welcomeText">
-    <h1 > Hello!</h1>
+    <h1> 
+      <span v-if="!isTurkish">Hello!</span>
+      <span v-else>Selam!</span>
+    </h1>
     <Transition name="solTaraf">
-      <h2 class="gecis" v-if="zaman1">I am Emre.</h2>
+      <h2 class="gecis" v-if="zaman1">
+      <span v-if="!isTurkish"> I am Emre.</span>
+      <span v-else>Ben Emre.</span>
+      </h2>
     </Transition>
     <Transition name="sagTaraf">
-      <h3 class="gecis" v-if="zaman2">I am many things.</h3>
+      <h3 class="gecis" v-if="zaman2">
+      <span v-if="!isTurkish">I am many things.</span>
+      <span v-else>Tek bir kişi değilim.</span>
+      </h3>
     </Transition>      
   </div>
   <div id="mainContent">
@@ -47,54 +65,59 @@ onMounted(() => {
         <img alt="Handsome man" src="./assets/handsome.jpg" />
     </div>
     <div id="drawer">
-      <div class="drawerItem d1"  @mouseover="bakilan= 1" @click="bakilan= 1" :class="{ highLight: bakilan===1 }"> An Author </div>
-      <div class="drawerItem d2"  @mouseover="bakilan= 2" @click="bakilan= 2" :class="{ highLight: bakilan===2 }"> A Translator</div>
-      <div class="drawerItem d3"  @mouseover="bakilan= 3" @click="bakilan= 3" :class="{ highLight: bakilan===3 }"> A Web Developer</div>
-      <div class="drawerItem d4"  @mouseover="bakilan= 4" @click="bakilan= 4" :class="{ highLight: bakilan===4 }"> An Academic</div>
+      <div class="drawerItem d1"  @mouseover="bakilan= 1" @click="bakilan= 1" :class="{ highLight: bakilan===1 }"> 
+      <span v-if="!isTurkish">An Author</span> 
+      <span v-else>Yazarım</span>
+      </div>
+      <div class="drawerItem d2"  @mouseover="bakilan= 2" @click="bakilan= 2" :class="{ highLight: bakilan===2 }"> 
+      <span v-if="!isTurkish">A Translator</span>
+      <span v-else>Çevirmenim</span>
+      </div>
+      <div class="drawerItem d3"  @mouseover="bakilan= 3" @click="bakilan= 3" :class="{ highLight: bakilan===3 }"> 
+      <span v-if="!isTurkish">A Web Developer</span>
+      <span v-else>Web Tasarımcısıyım</span>
+      </div>
+      <div class="drawerItem d4"  @mouseover="bakilan= 4" @click="bakilan= 4" :class="{ highLight: bakilan===4 }"> 
+      <span v-if="!isTurkish">An Academic</span>
+      <span v-else>Akademisyenim</span>
+      </div>
     </div>
     <div id="mediaLinks">
-      <a href="mailto: emrergin2757@yahoo.com" target="_blank">
-        <Icon size="36">        
-          <AlternateEmailFilled />
-        </Icon>
+      <a id="emailButton" href="mailto: emrergin2757@yahoo.com" target="_blank">
+        <Icon icon="mdi:email-edit-outline" height="36" width="32" align="center,slice" verticalAlign="center,slice"/>
       </a>
       <a href="https://github.com/emrergin/" target="_blank">
-        <Icon size="36">        
-          <Github />
-        </Icon>
+        <Icon icon="mdi:github"  height="36" width="30" align="center,slice" verticalAlign="center,slice"/>
       </a>
       <a href="https://twitter.com/zulmetefza" target="_blank">
-        <Icon size="36">
-            <Twitter />
-        </Icon>
+        <Icon icon="mdi:twitter" height="36" width="28" align="center,slice" verticalAlign="center,slice"/>
       </a>
       <a href="https://www.goodreads.com/author/show/9244242.Emre_Ergin" target="_blank">
-        <Icon size="36">
-          <GoodreadsG />
-        </Icon>
+        <Icon icon="mdi:goodreads"  height="36" width="18" align="center,slice" verticalAlign="center,slice" />
       </a>
     </div>
 </div>
 
 </div>
 <Transition name="sagTaraf" >
-  <Developer v-if="bakilan===3" class="sagTaraf2"/>
+  <Developer v-if="bakilan===3" class="sagTaraf2" :isTurkish="isTurkish"/>
 </Transition>
 <Transition name="sagTaraf" >
-  <Academic v-if="bakilan===4" class="sagTaraf2"/>
+  <Academic v-if="bakilan===4" class="sagTaraf2" :isTurkish="isTurkish"/>
 </Transition>  
 </template>
 
 
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 :root {
-  --renk1: #b6f6ca;
-  --renk2: #ddfbe0;
-  --renk3: #9ef2d9;
-  --renk4: black;
-  --renk5: black;
+  --renk1: #00B4FF;
+  --renk2: #EEEEEE;
+  --renk3: #515151;
+  --renk4: #041122;
+  --renk5: #041122;
 }
 
 body{
@@ -105,7 +128,7 @@ body{
 }
 
 #app {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -186,12 +209,29 @@ body{
 #mediaLinks{
   display:flex;
   gap: 10px;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  align-items:center;
   /* margin-bottom:50px; */
 }
 
 #mediaLinks>a{
   color:var(--renk4);
+  display: flex;
+  justify-content: stretch;
+  align-items:stretch;
 }
+
+svg,path{
+  height:100%;
+  width:100;
+}
+
+
+#mediaLinks>a:hover{
+  color:var(--renk1);
+}
+
 .d1,.d2{
   text-align:left;
 }
@@ -287,11 +327,9 @@ body{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 
-  #welcomeText{
-    /* align-self:stretch; */
-    position:absolute;
-    top: 35vw;
-    width:38vw;
+
+  #emailButton{
+    order:99;
   }
 
   .solTaraf2,.sagTaraf2{
@@ -349,20 +387,24 @@ body{
     grid-area: d4;
   }
 
+  #mediaLinks>a{
+    width:20%;
+  }
+
   #photoFrame{
-    border: var(--renk1) solid 20px;
+    border: var(--renk1) solid 15px;
     border-radius: 50%;
     overflow: clip;
     height: 30vw;
     width: 30vw;  
     position: static;
     margin: auto; 
-    left: 0; 
+    /* left: 0; 
     right: 0; 
     top: 0;
-    bottom: 200px;
+    bottom: 200px; */
     z-index: 10;
-    margin-bottom: 35vw;
+    /* margin-bottom: 35vw; */
   }
 
   #photoFrame > img{

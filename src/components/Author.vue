@@ -1,6 +1,9 @@
 <template>
 <div class="album">
-    <h1 id="tabloBaslik">Books</h1>
+    <h1 id="tabloBaslik">        
+        <span v-if="!isTurkish"> Books</span>
+        <span v-else>Kitaplar</span>
+    </h1>
     <div class="card">
         <a href="https://www.iz.com.tr/dorduncu-dilek" target="_blank">
             <img src="../assets/dd.jpg" alt="Dorduncu Dilek"/>
@@ -21,7 +24,10 @@
             <img src="../assets/rdb.png" alt="Ruh Dememi Bağışlayın"/>
         </a>        
     </div>
-    <h1 id="tabloBaslik2">Collaborations</h1>
+    <h1 id="tabloBaslik2">        
+        <span v-if="!isTurkish"> Collaborations</span>
+        <span v-else>Seçkiler</span>
+    </h1>
     <div class="card">
         <a href="https://www.ketebe.com/korkut-ata-ne-soyledi-aykut-ertugrul-guray-sungu" target="_blank">
             <img src="../assets/kans.png" alt="Korkut Ata Ne Söyledi"/>
@@ -41,6 +47,10 @@
 
 </template>
 
+<script setup>
+const props = defineProps(['isTurkish']);
+</script>
+
 <style>
 .album{
     display:grid;
@@ -48,6 +58,7 @@
     grid-template-rows: 1fr 2.5fr 2.5fr  ;
     height:100%;
     overflow: auto;
+    align-items: center;
 }
 
 
@@ -75,10 +86,6 @@ a{
     display: block;
 }
 @media (max-width:700px) { 
-    /* .album{
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    } */
-
 
     a>img,.card>img{
         object-fit: contain;

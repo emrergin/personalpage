@@ -1,10 +1,14 @@
 <template>
 <div class="album">
-    <h1 id="tabloBaslik">Sites</h1>
+    <h1 id="tabloBaslik">        
+        <span v-if="!isTurkish"> Sites</span>
+        <span v-else>Websiteleri</span>
+    </h1>
     <div class="card2">
         <img src="../assets/pru.png" alt="Risk Testing"/>
-        <div class="cardText">
-            Public repo is incoming...
+        <div class="cardText">            
+            <span v-if="!isTurkish"> Public repo is incoming...</span>
+            <span v-else>Yapım aşamasında...</span>
         </div>
     </div>
     <div class="card2">
@@ -13,13 +17,15 @@
             <a href="https://atolye.herokuapp.com/"
             target="_blank"
             >
-                Live
+                <span v-if="!isTurkish"> Live</span>
+                <span v-else> Link</span>
             </a>
             <a href="https://github.com/emrergin/atolye"
             target="_blank"
             >
-                Repo
-            </a> 
+                <span v-if="!isTurkish"> Repo</span>
+                <span v-else> Kodlar</span>
+            </a>
         </div>
     </div>
     <div class="card2">
@@ -28,13 +34,15 @@
             <a href="https://emrergin.github.io/etch-a-sketch/"
             target="_blank"
             >
-                Live
+                <span v-if="!isTurkish"> Live</span>
+                <span v-else> Link</span>
             </a>
             <a href="https://github.com/emrergin/etch-a-sketch"
             target="_blank"
             >
-                Repo
-            </a> 
+                <span v-if="!isTurkish"> Repo</span>
+                <span v-else> Kodlar</span>
+            </a>
         </div>
     </div>
     <div class="card2">
@@ -43,19 +51,24 @@
             <a href="https://emrergin.github.io/hasib"
             target="_blank"
             >
-                Live
+                <span v-if="!isTurkish"> Live</span>
+                <span v-else> Link</span>
             </a>
             <a href="https://github.com/emrergin/hasib"
             target="_blank"
             >
-                Repo
-            </a> 
+                <span v-if="!isTurkish"> Repo</span>
+                <span v-else> Kodlar</span>
+            </a>
         </div>
     </div>
 
 </div>
 
 </template>
+<script setup>
+const props = defineProps(['isTurkish']);
+</script>
 
 <style>
 .card2{
@@ -64,7 +77,7 @@
 
 .card2>img{
     object-fit: contain;
-    height: 250px;
+    height: 10vw;
     width: 10vw;
 }
 .card2:hover>img{
@@ -98,10 +111,15 @@
 @media (max-width:700px) { 
 .card2>img{
     object-fit: contain;
-    height: 150px;
-    width: 20vw;
+    height: 25vw;
+    width: 25vw;
+}
+
+.card2{
+    margin-top:10vh;
 }
 
 
 }
 </style>
+

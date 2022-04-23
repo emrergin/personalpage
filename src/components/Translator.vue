@@ -1,6 +1,9 @@
 <template>
 <div class="album">
-    <h1 id="tabloBaslik">Works</h1>
+    <h1 id="tabloBaslik">
+        <span v-if="!isTurkish"> Works</span>
+        <span v-else>Çeviriler</span>
+    </h1>
     <div class="card">
         <a href="https://www.hepsiburada.com/sagduyulu-yatirim-rehberi-emre-ergin-p-HBCV00000UHQYP" target="_blank">
             <img src="../assets/syr.jpg" alt="Sagduyu"/>
@@ -8,30 +11,51 @@
     </div>
     <div class="card">
         <a href="https://rayfowler.itch.io/remnants-of-the-precursors" target="_blank">
-            <img src="../assets/rop.jpg" alt="Remnants"/>
+            <img src="../assets/rop.jpg" alt="Remnants" class="genisImg"/>
         </a>
     </div>
     <div class="card">
         <a href="https://store.steampowered.com/app/498380/AquaNimble/" target="_blank">
-            <img src="../assets/an.jpg" alt="AquaNimble"/>
+            <img src="../assets/an.jpg" alt="AquaNimble"  class="genisImg"/>
         </a>
     </div>
     <div class="card">
         <a href="https://store.steampowered.com/app/342610/HyperRogue/" target="_blank">
-            <img src="../assets/hr.png" alt="Hyper Rogue"/>
+            <img src="../assets/hr.png" alt="Hyper Rogue"  />
         </a>
     </div>
     <div class="card">
         <a href="https://store.steampowered.com/app/312280/Simply_Chess" target="_blank"> 
-            <img src="../assets/sc.jpg" alt="Simply Chess"/>
+            <img src="../assets/sc.jpg" alt="Simply Chess"  class="genisImg"/>
         </a>
     </div>
     <div class="card">
         <a href="https://store.steampowered.com/app/368700/Mysterious_Space/" target="_blank">    
-            <img src="../assets/ms.jpg" alt="Mysterious Space"/>
+            <img src="../assets/ms.jpg" alt="Mysterious Space"  class="genisImg"/>
         </a>
     </div>
 
 </div>
 
 </template>
+
+<script setup>
+const props = defineProps(['isTurkish']);
+</script>
+
+<style>
+a>.genisImg,.card>.genisImg{
+    object-fit: contain;
+    height: 125px;
+    width: 10vw;
+}
+
+@media (max-width:700px) { 
+    a>.genisImg,.card>.genisImg{
+    object-fit: contain;
+    height: 125px;
+    width: 25vw;
+}
+}
+
+</style>
