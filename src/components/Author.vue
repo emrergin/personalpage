@@ -85,12 +85,12 @@ a>img,.card>img{
 a{
     display: block;
 }
-@media (max-width:700px) { 
+@media (max-width:1000px) { 
 
     a>img,.card>img{
         object-fit: contain;
         height: 150px;
-        width: 20vw;
+        width: 30vw;
     }
 
     .album{

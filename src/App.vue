@@ -4,9 +4,6 @@ import Translator from "./components/Translator.vue";
 import Developer from "./components/Developer.vue";
 import Academic from "./components/Academic.vue";
 import { ref , onMounted } from 'vue';
-// import { Icon } from '@vicons/utils';
-// import {Github,Twitter,GoodreadsG} from '@vicons/fa/';
-// import {AlternateEmailFilled} from '@vicons/material';
 import { Icon } from '@iconify/vue';
 
 const bakilan=ref(0);
@@ -17,7 +14,7 @@ const isTurkish=ref(false);
 onMounted(() => {
   setTimeout(() =>zaman1.value=true, 1000);
   setTimeout(() =>zaman2.value=true, 2500);
-  if (window.innerWidth < 960) {
+  if (window.innerWidth < 1000) {
     let metin=document.getElementById(`welcomeText`);
     document.getElementById(`photoFrame`).after(metin);
   }
@@ -37,7 +34,6 @@ onMounted(() => {
       <Translator v-if="bakilan===2" class="solTaraf2" :isTurkish="isTurkish"/>
     </Transition>
 
-
 <div id="general" :class="[
   {solBorder:(bakilan===1||bakilan===2)},
   {sagBorder:(bakilan===3||bakilan===4)},
@@ -56,7 +52,7 @@ onMounted(() => {
     <Transition name="sagTaraf">
       <h3 class="gecis" v-if="zaman2">
       <span v-if="!isTurkish">I am many things.</span>
-      <span v-else>Tek bir kişi değilim.</span>
+      <span class="kucukYazi2" v-else>Aşağıdakilerin hepsiyim.</span>
       </h3>
     </Transition>      
   </div>
@@ -67,23 +63,23 @@ onMounted(() => {
     <div id="drawer">
       <div class="drawerItem d1"  @mouseover="bakilan= 1" @click="bakilan= 1" :class="{ highLight: bakilan===1 }"> 
       <span v-if="!isTurkish">An Author</span> 
-      <span v-else>Yazarım</span>
+      <span v-else>Yazar</span>
       </div>
       <div class="drawerItem d2"  @mouseover="bakilan= 2" @click="bakilan= 2" :class="{ highLight: bakilan===2 }"> 
       <span v-if="!isTurkish">A Translator</span>
-      <span v-else>Çevirmenim</span>
+      <span v-else>Çevirmen</span>
       </div>
       <div class="drawerItem d3"  @mouseover="bakilan= 3" @click="bakilan= 3" :class="{ highLight: bakilan===3 }"> 
       <span v-if="!isTurkish">A Web Developer</span>
-      <span v-else>Web Tasarımcısıyım</span>
+      <span v-else>Web Geliştiricisi</span>
       </div>
       <div class="drawerItem d4"  @mouseover="bakilan= 4" @click="bakilan= 4" :class="{ highLight: bakilan===4 }"> 
       <span v-if="!isTurkish">An Academic</span>
-      <span v-else>Akademisyenim</span>
+      <span v-else class="kucukYazi2">Akademisyen</span>
       </div>
     </div>
     <div id="mediaLinks">
-      <a id="emailButton" href="mailto: emrergin2757@yahoo.com" target="_blank">
+      <a href="mailto: emrergin2757@yahoo.com" target="_blank">
         <Icon icon="mdi:email-edit-outline" height="36" width="32" align="center,slice" verticalAlign="center,slice"/>
       </a>
       <a href="https://github.com/emrergin/" target="_blank">
@@ -209,10 +205,8 @@ body{
 #mediaLinks{
   display:flex;
   gap: 10px;
-  /* flex-wrap: wrap; */
   justify-content: center;
   align-items:center;
-  /* margin-bottom:50px; */
 }
 
 #mediaLinks>a{
@@ -299,7 +293,7 @@ svg,path{
   border-right: var(--renk2) solid 5px;
 }
 
-@media (max-width:700px) { 
+@media (max-width:1000px) { 
   #app{
     position:static;
     -ms-transform: translateY(0%);
@@ -322,9 +316,14 @@ svg,path{
     grid-row-start: 1;
     grid-row-end: 2;
     display:flex;
-    place-items:start;
-    place-content:start;
+    justify-content:center;
+    align-items: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width:33vw;
+  }
+
+  #mainContent{
+    width:100%;
   }
 
 
@@ -348,43 +347,18 @@ svg,path{
   #drawer{
     display:flex;
     flex-direction:column;
-    /* grid-template-columns:1fr 0.4fr 1fr ;
-    grid-template-rows: 1fr 2fr 1fr ; */
-    /* width: 100%; */
     justify-content: stretch;
     height: 100px;
     padding-bottom: 200px;
-    /* grid-template-areas: 
-      "d1 . d3"
-      "d2 . d4"; */
+  }
+
+  #mediaLinks{
+    margin-top:2vh;
+    width:100%;
   }
 
   .d1,.d2,.d3,.d4{
     text-align:center;
-  }
-
-  .drawerItem{
-    background-color: var(--renk1);
-    color: black;
-    padding: 15px;
-    border: var(--renk2) solid 3px;
-    border-radius: 5px;
-    filter: brightness(90%)
-  }
-  .drawerItem.highLight, .drawerItem:hover{
-    filter: brightness(100%)
-  }
-  .d1{
-    grid-area: d1;
-  }
-  .d2{
-    grid-area: d2;
-  }
-  .d3{
-    grid-area: d3;
-  }
-  .d4{
-    grid-area: d4;
   }
 
   #mediaLinks>a{
@@ -395,21 +369,17 @@ svg,path{
     border: var(--renk1) solid 15px;
     border-radius: 50%;
     overflow: clip;
-    height: 30vw;
-    width: 30vw;  
+    height: calc(33vw - 30px);
+    width: calc(33vw - 30px);  
     position: static;
     margin: auto; 
-    /* left: 0; 
-    right: 0; 
-    top: 0;
-    bottom: 200px; */
     z-index: 10;
-    /* margin-bottom: 35vw; */
+    box-shadow: 0px min(1vw,5px) min(1vw,5px);
   }
 
   #photoFrame > img{
-    height: 30vw;
-    width: 30vw;
+    height: calc(33vw - 30px);
+    width: calc(33vw - 30px);  
     object-fit: cover;
   }
 
@@ -420,6 +390,10 @@ svg,path{
     opacity: 0;
     transform: translateX(40%);
     position: absolute;
+  }
+
+  .kucukYazi2{
+    font-size:0.85em;
   }
 }
 </style>

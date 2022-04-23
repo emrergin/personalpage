@@ -50,11 +50,11 @@ a>.genisImg,.card>.genisImg{
     width: 10vw;
 }
 
-@media (max-width:700px) { 
+@media (max-width:1000px) { 
     a>.genisImg,.card>.genisImg{
     object-fit: contain;
     height: 125px;
-    width: 25vw;
+    width: 30vw;
 }
 }
 

@@ -6,7 +6,7 @@
     </h1>
     <div class="card2">
         <img src="../assets/pru.png" alt="Risk Testing"/>
-        <div class="cardText">            
+        <div class="cardText kucukYazi2">            
             <span v-if="!isTurkish"> Public repo is incoming...</span>
             <span v-else>Yapım aşamasında...</span>
         </div>
@@ -108,17 +108,21 @@ const props = defineProps(['isTurkish']);
     transform: translate(-50%, -50%) scale(1);
 }
 
-@media (max-width:700px) { 
+@media (max-width:1000px) { 
 .card2>img{
     object-fit: contain;
-    height: 25vw;
-    width: 25vw;
+    height: 30vw;
+    width: 30vw;
 }
 
 .card2{
-    margin-top:10vh;
+    margin-top:5vh;
 }
 
+
+.card2:hover> .cardText{
+    max-width: 15vw;
+}
 
 }
 </style>
