@@ -5,11 +5,22 @@ import Developer from "./components/Developer.vue";
 import Academic from "./components/Academic.vue";
 import { ref , onMounted } from 'vue';
 import { Icon } from '@iconify/vue';
+import emailEditOutline from '@iconify-icons/mdi/email-edit-outline';
+import githubIcon from '@iconify-icons/mdi/github';
+import goodreadsIcon from '@iconify-icons/mdi/goodreads';
+import twitterIcon from '@iconify-icons/mdi/twitter';
 
 const bakilan=ref(0);
 const zaman1=ref(false);
 const zaman2=ref(false);
 const isTurkish=ref(false);
+
+let icons={
+				emailEditOutline,
+        githubIcon,
+        twitterIcon,
+        goodreadsIcon
+			};
 
 onMounted(() => {
   setTimeout(() =>zaman1.value=true, 1000);
@@ -45,51 +56,51 @@ onMounted(() => {
     </h1>
     <Transition name="solTaraf">
       <h2 class="gecis" v-if="zaman1">
-      <span v-if="!isTurkish"> I am Emre.</span>
-      <span v-else>Ben Emre.</span>
+        <span v-if="!isTurkish"> I am Emre.</span>
+        <span v-else>Ben Emre.</span>
       </h2>
     </Transition>
     <Transition name="sagTaraf">
       <h3 class="gecis" v-if="zaman2">
-      <span v-if="!isTurkish">I am many things.</span>
-      <span class="kucukYazi2" v-else>Aşağıdakilerin hepsiyim.</span>
+        <span v-if="!isTurkish">I am many things.</span>
+        <span class="kucukYazi2" v-else>Aşağıdakilerin hepsiyim.</span>
       </h3>
     </Transition>      
   </div>
   <div id="mainContent">
     <div id="photoFrame">
-        <img alt="Handsome man" src="./assets/handsome.jpg" />
+        <img alt="My Face" src="./assets/proPic.png" />
     </div>
     <div id="drawer">
       <div class="drawerItem d1"  @mouseover="bakilan= 1" @click="bakilan= 1" :class="{ highLight: bakilan===1 }"> 
-      <span v-if="!isTurkish">An Author</span> 
-      <span v-else>Yazar</span>
+        <span v-if="!isTurkish">An Author</span> 
+        <span v-else>Yazar</span>
       </div>
       <div class="drawerItem d2"  @mouseover="bakilan= 2" @click="bakilan= 2" :class="{ highLight: bakilan===2 }"> 
-      <span v-if="!isTurkish">A Translator</span>
-      <span v-else>Çevirmen</span>
+        <span v-if="!isTurkish">A Translator</span>
+        <span v-else>Çevirmen</span>
       </div>
       <div class="drawerItem d3"  @mouseover="bakilan= 3" @click="bakilan= 3" :class="{ highLight: bakilan===3 }"> 
-      <span v-if="!isTurkish">A Web Developer</span>
-      <span v-else>Web Geliştiricisi</span>
+        <span v-if="!isTurkish">A Web Developer</span>
+        <span v-else>Web Geliştiricisi</span>
       </div>
       <div class="drawerItem d4"  @mouseover="bakilan= 4" @click="bakilan= 4" :class="{ highLight: bakilan===4 }"> 
-      <span v-if="!isTurkish">An Academic</span>
-      <span v-else class="kucukYazi2">Akademisyen</span>
+        <span v-if="!isTurkish">An Academic</span>
+        <span v-else class="kucukYazi2">Akademisyen</span>
       </div>
     </div>
     <div id="mediaLinks">
       <a href="mailto: emrergin2757@yahoo.com" target="_blank">
-        <Icon icon="mdi:email-edit-outline" height="36" width="32" align="center,slice" verticalAlign="center,slice"/>
+        <Icon :icon="icons.emailEditOutline" height="36" width="32" align="center,slice" verticalAlign="center,slice"/>        
       </a>
       <a href="https://github.com/emrergin/" target="_blank">
-        <Icon icon="mdi:github"  height="36" width="30" align="center,slice" verticalAlign="center,slice"/>
+        <Icon :icon="icons.githubIcon"  height="36" width="30" align="center,slice" verticalAlign="center,slice"/>
       </a>
       <a href="https://twitter.com/zulmetefza" target="_blank">
-        <Icon icon="mdi:twitter" height="36" width="28" align="center,slice" verticalAlign="center,slice"/>
+        <Icon :icon="icons.twitterIcon" height="36" width="28" align="center,slice" verticalAlign="center,slice"/>
       </a>
       <a href="https://www.goodreads.com/author/show/9244242.Emre_Ergin" target="_blank">
-        <Icon icon="mdi:goodreads"  height="36" width="18" align="center,slice" verticalAlign="center,slice" />
+        <Icon :icon="icons.goodreadsIcon"  height="36" width="18" align="center,slice" verticalAlign="center,slice" />
       </a>
     </div>
 </div>

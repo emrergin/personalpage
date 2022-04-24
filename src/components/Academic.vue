@@ -19,7 +19,7 @@
 </a>    
 
 <h1 id="tabloBaslik2" class="kucukYazi">
-    <span v-if="!isTurkish"> Affiliations</span>
+    <span v-if="!isTurkish"> Current and Past Affiliations</span>
     <span v-else>Akademik Geçmişim</span>  
 </h1>
 <a href="http://www.ibu.edu.tr/en" 
