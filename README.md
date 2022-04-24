@@ -2,7 +2,7 @@
 
 ### Sources
 - Icons: https://icon-sets.iconify.design/
-    - [Material Design Icons](https://github.com/Templarian/MaterialDesign) by **Austin Andrews**.
+    - [Material Design Icons](https://materialdesignicons.com/) by **Austin Andrews**.
 - https://www.colourlovers.com/palette/38562/Hands_On
 - https://tinypng.com/
 

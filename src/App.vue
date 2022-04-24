@@ -25,6 +25,7 @@ let icons={
 onMounted(() => {
   setTimeout(() =>zaman1.value=true, 1000);
   setTimeout(() =>zaman2.value=true, 2500);
+  window.addEventListener("resize", myEventHandler);
   if (window.innerWidth < 1000) {
     let metin=document.getElementById(`welcomeText`);
     document.getElementById(`photoFrame`).after(metin);
@@ -34,7 +35,16 @@ onMounted(() => {
   }
 })
 
-
+function myEventHandler(){
+  if (window.innerWidth < 1000) {
+    let metin=document.getElementById(`welcomeText`);
+    document.getElementById(`photoFrame`).after(metin);
+  }
+  else{
+    let metin=document.getElementById(`welcomeText`);
+    document.getElementById(`mainContent`).before(metin);
+  }
+}
 </script>
 
 <template>
