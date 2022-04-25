@@ -164,7 +164,7 @@ body{
   position:relative;
   justify-items: stretch;
   height: 70vh;
-  font-size:calc(12px + 0.25vw);
+  font-size:calc(12px + 0.2vw);
   top: 30%;
   -ms-transform: translateY(-30%);
   transform: translateY(-30%);
@@ -422,9 +422,13 @@ svg,path{
   }
 }
 
-@media (min-width:1921px) { 
+@media (min-width:3000px) { 
+  h1,h2,h3{
+    font-size:3rem;
+  }
+
   #mediaLinks{
-    transform: scale(calc(100vh / 1920));
+    transform: scale(3);
   }
 }
 </style>
