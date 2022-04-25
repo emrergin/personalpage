@@ -25,7 +25,7 @@ let icons={
 onMounted(() => {
   setTimeout(() =>zaman1.value=true, 1000);
   setTimeout(() =>zaman2.value=true, 2500);
-  window.addEventListener("resize", myEventHandler);
+  window.addEventListener("resize", windowResize);
   if (window.innerWidth < 1000) {
     let metin=document.getElementById(`welcomeText`);
     document.getElementById(`photoFrame`).after(metin);
@@ -35,7 +35,7 @@ onMounted(() => {
   }
 })
 
-function myEventHandler(){
+function windowResize(){
   if (window.innerWidth < 1000) {
     let metin=document.getElementById(`welcomeText`);
     document.getElementById(`photoFrame`).after(metin);
@@ -142,6 +142,8 @@ body{
   background-color: var(--renk3);
   height: 100vh;
   overflow: hidden;
+  display: flex;
+  flex-direction:column;
 }
 
 #app {
@@ -161,20 +163,22 @@ body{
   grid-template-rows: 1fr;
   position:relative;
   justify-items: stretch;
-  height: 620px;
-  font-size:16px;
+  height: 70vh;
+  font-size:calc(12px + 0.25vw);
   top: 30%;
   -ms-transform: translateY(-30%);
   transform: translateY(-30%);
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px calc(15px + 0.4vw) calc(30px + 0.8vw), rgba(0, 0, 0, 0.22) 0px calc(11px + 0.4vw) calc(8px + 0.4vw);
+  width: min(1920px, 100vw);
+  align-self: center;
 }
 
 #photoFrame{
-  border: var(--renk1) solid 20px;
+  border: var(--renk1) solid calc(14px + 0.25vw);
   border-radius: 50%;
   overflow: clip;
-  height: 10vw;
-  width: 10vw;  
+  height: min(200px,20vh);
+  width: min(200px,20vh);  
   position: absolute;
   margin: auto; 
   left: 0; 
@@ -185,8 +189,8 @@ body{
 }
 
 #photoFrame > img{
-  height: 10vw;
-  width: 10vw;
+  height: min(200px,20vh);
+  width: min(200px,20vh);  
   object-fit: cover;
 }
 
@@ -261,7 +265,7 @@ svg,path{
   padding: 15px;
   border: var(--renk2) solid 3px;
   border-radius: 5px;
-  filter: brightness(90%)
+  filter: brightness(90%);
 }
 
 .drawerItem.highLight, .drawerItem:hover{
@@ -415,6 +419,12 @@ svg,path{
 
   .kucukYazi2{
     font-size:0.85em;
+  }
+}
+
+@media (min-width:1921px) { 
+  #mediaLinks{
+    transform: scale(calc(100vh / 1920));
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-<div class="album">
+<div class="album2">
     <h1 id="tabloBaslik1">
         <span v-if="!isTurkish"> Articles</span>
         <span v-else>Makaleler</span>
@@ -26,27 +26,27 @@
     target="_blank"
     class="drawerItem article"
 >	
-Bolu Abant İzzet Baysal <span v-if="!isTurkish"> University</span><span v-else>Üniversitesi</span>      
+Bolu Abant İzzet Baysal&nbsp;<span v-if="!isTurkish">University</span><span v-else>Üniversitesi</span>      
 </a>
 <a href="https://www.maastrichtuniversity.nl/" 
     target="_blank"
     class="drawerItem article">
-Maastricht <span v-if="!isTurkish"> University</span><span v-else>Üniversitesi</span>
+Maastricht&nbsp;<span v-if="!isTurkish">University</span><span v-else>Üniversitesi</span>
 </a>  
 <a href="https://www.uni-corvinus.hu/?lang=en/" 
     target="_blank"
     class="drawerItem article">
-Corvinus <span v-if="!isTurkish"> University</span><span v-else>Üniversitesi</span>
+Corvinus&nbsp;<span v-if="!isTurkish">University</span><span v-else>Üniversitesi</span>
 </a>  
 <a href="https://w3.bilkent.edu.tr/bilkent/" 
     target="_blank"
     class="drawerItem article">
-Bilkent <span v-if="!isTurkish"> University</span><span v-else>Üniversitesi</span> 
+Bilkent&nbsp;<span v-if="!isTurkish">University</span><span v-else>Üniversitesi</span> 
 </a>  
 <a href="https://www.etu.edu.tr/en/" 
     target="_blank"
     class="drawerItem article">
-TOBB ETÜ <span v-if="!isTurkish"> University</span><span v-else>Üniversitesi</span>
+TOBB ETÜ&nbsp;<span v-if="!isTurkish">University</span><span v-else>Üniversitesi</span>
 </a>  
 
 </div>
@@ -57,15 +57,27 @@ const props = defineProps(['isTurkish']);
 </script>
 
 <style>
+.album2{
+    display:grid;
+    grid-template-columns:1fr 1fr  ;
+    grid-template-rows: 1fr 1.5fr 1.5fr  1fr  1.5fr 1.5fr  1.5fr  1.5fr 1.5fr;
+    height:100%;
+    overflow: auto;
+    align-items: center;
+}
+
 .article{
-grid-column: span 2;
+    grid-column: span 2;
+    display: flex;
+    align-items: center; /* Vertical center alignment */
+    justify-content: center; /* Horizontal center alignment */
 }
 
 .kucukYazi{
     transform: scale(0.9);
 }
 
-.album>.drawerItem{
+.album2>.drawerItem{
     align-self:stretch;
 }
 </style>

@@ -65,7 +65,7 @@ const props = defineProps(['isTurkish']);
 a>img,.card>img{
     object-fit: contain;
     height: 250px;
-    width: 10vw;
+    width: min(10vw,200px);
 }
 
 #tabloBaslik1, #tabloBaslik{
