@@ -66,10 +66,9 @@ const props = defineProps(['isTurkish']);
     align-items: center;
 }
 .article{
-    /* grid-column: span 2; */
     display: flex;
-    align-items: center; /* Vertical center alignment */
-    justify-content: center; /* Horizontal center alignment */
+    align-items: center;
+    justify-content: center;
 }
 .kucukYazi{
     transform: scale(0.9);
