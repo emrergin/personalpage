@@ -25,7 +25,8 @@ let icons={
 onMounted(() => {
   setTimeout(() =>zaman1.value=true, 1000);
   setTimeout(() =>zaman2.value=true, 2500);
-  window.addEventListener("resize", windowResize);
+
+  window.addEventListener("resize", textPlacer);
   if (window.innerWidth < 1000) {
     let metin=document.getElementById(`welcomeText`);
     document.getElementById(`photoFrame`).after(metin);
@@ -35,7 +36,7 @@ onMounted(() => {
   }
 })
 
-function windowResize(){
+function textPlacer(){
   if (window.innerWidth < 1000) {
     let metin=document.getElementById(`welcomeText`);
     document.getElementById(`photoFrame`).after(metin);
@@ -163,8 +164,8 @@ body{
   grid-template-rows: 1fr;
   position:relative;
   justify-items: stretch;
-  height: 70vh;
-  font-size:calc(12px + 0.2vw);
+  /* height: 620px; */
+  font-size:16px;
   top: 30%;
   -ms-transform: translateY(-30%);
   transform: translateY(-30%);
@@ -269,7 +270,7 @@ svg,path{
 }
 
 .drawerItem.highLight, .drawerItem:hover{
-   filter: brightness(100%)
+   filter: brightness(100%);
 }
 
 .d1{
@@ -316,6 +317,13 @@ svg,path{
 .solBorder{
   border-left: var(--renk1) solid 5px;
   border-right: var(--renk2) solid 5px;
+}
+
+@media (min-width:1001px){
+  #app{
+  aspect-ratio: 3;
+  }
+  
 }
 
 @media (max-width:1000px) { 
