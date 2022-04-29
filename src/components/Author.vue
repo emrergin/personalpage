@@ -55,7 +55,7 @@ const props = defineProps(['isTurkish']);
 .album{
     display:grid;
     grid-template-columns:1fr 1fr  ;
-    grid-template-rows: 1fr 2.5fr 2.5fr  ;
+    grid-template-rows: 1fr 2.5fr 2.5fr;
     height:100%;
     overflow: auto;
     align-items: center;
@@ -64,8 +64,8 @@ const props = defineProps(['isTurkish']);
 
 a>img,.card>img{
     object-fit: contain;
-    height: 250px;
-    width: min(10vw,200px);
+    height: auto;
+    width: 10vw;
 }
 
 #tabloBaslik1, #tabloBaslik{

@@ -77,8 +77,8 @@ const props = defineProps(['isTurkish']);
 
 .card2>img{
     object-fit: contain;
-    height:  min(10vw,200px);
-    width: min(10vw,200px);
+    height: 10vw;
+    width: 10vw;
 }
 .card2:hover>img{
     filter:brightness(0.8) blur(2px) saturate(0.1);

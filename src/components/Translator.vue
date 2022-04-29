@@ -46,14 +46,16 @@ const props = defineProps(['isTurkish']);
 <style>
 a>.genisImg,.card>.genisImg{
     object-fit: contain;
-    height: 125px;
-    width: min(10vw,200px);
+    height: auto;
+    width: 10vw;
+    margin-top:4vh;
+    margin-bottom:4vh;
 }
 
 @media (max-width:1000px) { 
     a>.genisImg,.card>.genisImg{
     object-fit: contain;
-    height: 125px;
+    height: auto;
     width: 30vw;
 }
 }

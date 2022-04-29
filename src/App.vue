@@ -102,16 +102,16 @@ function textPlacer(){
     </div>
     <div id="mediaLinks">
       <a href="mailto: emrergin2757@yahoo.com" target="_blank">
-        <Icon :icon="icons.emailEditOutline" height="36" width="32" align="center,slice" verticalAlign="center,slice"/>        
+        <Icon :icon="icons.emailEditOutline"  id="icon1" align="center,slice" verticalAlign="center,slice"/>        
       </a>
       <a href="https://github.com/emrergin/" target="_blank">
-        <Icon :icon="icons.githubIcon"  height="36" width="30" align="center,slice" verticalAlign="center,slice"/>
+        <Icon :icon="icons.githubIcon"   id="icon2" align="center,slice" verticalAlign="center,slice"/>
       </a>
       <a href="https://twitter.com/zulmetefza" target="_blank">
-        <Icon :icon="icons.twitterIcon" height="36" width="28" align="center,slice" verticalAlign="center,slice"/>
+        <Icon :icon="icons.twitterIcon"  id="icon3" align="center,slice" verticalAlign="center,slice"/>
       </a>
       <a href="https://www.goodreads.com/author/show/9244242.Emre_Ergin" target="_blank">
-        <Icon :icon="icons.goodreadsIcon"  height="36" width="18" align="center,slice" verticalAlign="center,slice" />
+        <Icon :icon="icons.goodreadsIcon"   id="icon4" align="center,slice" verticalAlign="center,slice" />
       </a>
     </div>
 </div>
@@ -165,34 +165,13 @@ body{
   position:relative;
   justify-items: stretch;
   /* height: 620px; */
-  font-size:16px;
+  font-size:1.5vh;
   top: 30%;
   -ms-transform: translateY(-30%);
   transform: translateY(-30%);
   box-shadow: rgba(0, 0, 0, 0.3) 0px calc(15px + 0.4vw) calc(30px + 0.8vw), rgba(0, 0, 0, 0.22) 0px calc(11px + 0.4vw) calc(8px + 0.4vw);
-  width: min(1920px, 100vw);
+  width: 100vw;
   align-self: center;
-}
-
-#photoFrame{
-  border: var(--renk1) solid calc(14px + 0.25vw);
-  border-radius: 50%;
-  overflow: clip;
-  height: min(200px,20vh);
-  width: min(200px,20vh);  
-  position: absolute;
-  margin: auto; 
-  left: 0; 
-  right: 0; 
-  top: 0;
-  bottom: 200px;
-  z-index: 10;
-}
-
-#photoFrame > img{
-  height: min(200px,20vh);
-  width: min(200px,20vh);  
-  object-fit: cover;
 }
 
 #general{
@@ -222,34 +201,31 @@ body{
   width: 100%;
   justify-content: stretch;
   height: 100px;
-  padding-bottom: 200px;
+  /* padding-bottom: 200px; */
   grid-template-areas: 
     "d1 . d3"
     "d2 . d4";
 }
 
-#mediaLinks{
-  display:flex;
-  gap: 10px;
-  justify-content: center;
-  align-items:center;
+#photoFrame{
+  border: var(--renk1) solid 1.5vh;
+  border-radius: 50%;
+  overflow: clip;
+  height: min(10vw,30vh);
+  width: min(10vw,30vh); 
+  position: absolute;
+  margin: auto; 
+  left: 0; 
+  right: 0; 
+  top: calc(-1/3 * min(10vw,30vh));
+  /* bottom: auto; */
+  z-index: 10;
 }
 
-#mediaLinks>a{
-  color:var(--renk4);
-  display: flex;
-  justify-content: stretch;
-  align-items:stretch;
-}
-
-svg,path{
-  height:100%;
-  width:100;
-}
-
-
-#mediaLinks>a:hover{
-  color:var(--renk1);
+#photoFrame > img{
+  height: min(10vw,30vh);
+  width: min(10vw,30vh); 
+  object-fit: cover;
 }
 
 .d1,.d2{
@@ -263,9 +239,9 @@ svg,path{
 .drawerItem{
   background-color: var(--renk1);
   color: var(--renk5);
-  padding: 15px;
+  padding: 1.5vh;
   border: var(--renk2) solid 3px;
-  border-radius: 5px;
+  border-radius: 0.75vh;
   filter: brightness(90%);
 }
 
@@ -284,6 +260,48 @@ svg,path{
 }
 .d4{
   grid-area: d4;
+}
+
+#mediaLinks{
+  display:flex;
+  gap: 1vh;
+  justify-content: center;
+  align-items:center;
+}
+
+#mediaLinks>a{
+  color:var(--renk4);
+  display: flex;
+  justify-content: stretch;
+  align-items:stretch;
+}
+
+svg,path{
+  height:100%;
+  width:100;
+}
+
+#icon1{
+  height:3.4vh;
+  width:3vh;
+}
+
+#icon2{
+  height:3.4vh;
+  width:2.8vh;
+}
+#icon3{
+  height:3.4vh;
+  width:2.6vh;
+}
+
+#icon4{
+  height:3.4vh;
+  width:1.75vh;
+}
+
+#mediaLinks>a:hover{
+  color:var(--renk1);
 }
 
 .solTaraf-enter-active,
@@ -322,6 +340,11 @@ svg,path{
 @media (min-width:1001px){
   #app{
   aspect-ratio: 3;
+  }
+  #mainContent{
+    margin-top:5vh;
+    height:60%;
+    justify-content:space-between;
   }
   
 }
@@ -427,16 +450,6 @@ svg,path{
 
   .kucukYazi2{
     font-size:0.85em;
-  }
-}
-
-@media (min-width:3000px) { 
-  h1,h2,h3{
-    font-size:3rem;
-  }
-
-  #mediaLinks{
-    transform: scale(3);
   }
 }
 </style>
