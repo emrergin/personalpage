@@ -142,7 +142,7 @@ body{
   margin:0px;  
   background-color: var(--renk3);
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden !important;
   display: flex;
   flex-direction:column;
 }
@@ -183,7 +183,8 @@ body{
   grid-column-end: 3;
   padding:0px;
   margin:0px;
-  transition: all 0.5s ease-in;
+  transition: transform 0.5s ease-in;
+  transition: opacity 0.5s ease-in;
 }
 
 #mainContent{
@@ -200,7 +201,7 @@ body{
   grid-template-rows: 1fr 2fr 1fr ;
   width: 100%;
   justify-content: stretch;
-  height: 100px;
+  height: 5vw;
   /* padding-bottom: 200px; */
   grid-template-areas: 
     "d1 . d3"
@@ -324,22 +325,22 @@ svg,path{
 }
 
 .noBorder{
-  border-right: var(--renk2) solid 5px;
-  border-left: var(--renk2) solid 5px;
+  border-right: var(--renk2) solid 0.5vw;
+  border-left: var(--renk2) solid 0.5vw;
 }
 .sagBorder{
-  border-right: var(--renk1) solid 5px;
-  border-left: var(--renk2) solid 5px;
+  border-right: var(--renk1) solid 0.5vw;
+  border-left: var(--renk2) solid 0.5vw;
 }
 
 .solBorder{
-  border-left: var(--renk1) solid 5px;
-  border-right: var(--renk2) solid 5px;
+  border-left: var(--renk1) solid 0.5vw;
+  border-right: var(--renk2) solid 0.5vw;
 }
 
 @media (min-width:1001px){
   #app{
-  aspect-ratio: 3;
+  height: 33vw;
   }
   #mainContent{
     margin-top:5vh;
