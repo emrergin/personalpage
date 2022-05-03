@@ -31,7 +31,7 @@ Bolu Abant İzzet Baysal&nbsp;<span v-if="!isTurkish">University</span><span v-e
 <a href="https://www.maastrichtuniversity.nl/" 
     target="_blank"
     class="drawerItem article">
-Maastricht<span v-if="!isTurkish">&nbsp;University</span><span v-else>Üniversitesi</span>
+Maastricht&nbsp;<span v-if="!isTurkish">University</span><span v-else>Üniversitesi</span>
 </a>  
 <a href="https://www.uni-corvinus.hu/?lang=en/" 
     target="_blank"

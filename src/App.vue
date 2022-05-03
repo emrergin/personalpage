@@ -30,6 +30,11 @@ onMounted(() => {
   if (window.innerWidth < 1000) {
     let metin=document.getElementById(`welcomeText`);
     document.getElementById(`photoFrame`).after(metin);
+    let appHeight=document.getElementById(`app`).offsetHeight+2.2*document.getElementById(`textIlkSatir`).offsetHeight;
+    document.getElementById(`app`).style.height=`${appHeight}px`;
+  }
+  else{
+    document.getElementById(`app`).style.height=`auto`;
   }
   if (navigator.language===`tr-TR`){
     isTurkish.value=true;
@@ -40,10 +45,13 @@ function textPlacer(){
   if (window.innerWidth < 1000) {
     let metin=document.getElementById(`welcomeText`);
     document.getElementById(`photoFrame`).after(metin);
+    let appHeight=document.getElementById(`app`).offsetHeight+2.2*document.getElementById(`textIlkSatir`).offsetHeight;;
+    document.getElementById(`app`).style.height=`${appHeight}px`;
   }
   else{
     let metin=document.getElementById(`welcomeText`);
     document.getElementById(`mainContent`).before(metin);
+    document.getElementById(`app`).style.height=`auto`;
   }
 }
 </script>
@@ -61,7 +69,7 @@ function textPlacer(){
   {sagBorder:(bakilan===3||bakilan===4)},
   {noBorder: !bakilan}]">
   <div id="welcomeText">
-    <h1> 
+    <h1 id="textIlkSatir"> 
       <span v-if="!isTurkish">Hello!</span>
       <span v-else>Selam!</span>
     </h1>
@@ -277,6 +285,13 @@ body{
   align-items:stretch;
 }
 
+#mediaLinks>a:hover{
+  color:var(--renk1);
+  transform: scale(1.1);
+  transition:all 0.5s ease-in;
+}
+
+
 svg,path{
   height:100%;
   width:100;
@@ -301,9 +316,6 @@ svg,path{
   width:1.75vh;
 }
 
-#mediaLinks>a:hover{
-  color:var(--renk1);
-}
 
 .solTaraf-enter-active,
 .sagTaraf-enter-active{
@@ -373,14 +385,16 @@ svg,path{
     grid-row-start: 1;
     grid-row-end: 2;
     display:flex;
-    justify-content:center;
+    justify-content:flex-start;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     width:33vw;
+    height:100%;
   }
 
   #mainContent{
     width:100%;
+    height:100%;
   }
 
 
@@ -410,8 +424,9 @@ svg,path{
   }
 
   #mediaLinks{
-    margin-top:2vh;
+    margin-top:auto;
     width:100%;
+    justify-self:flex-end;
   }
 
   .d1,.d2,.d3,.d4{
@@ -420,6 +435,8 @@ svg,path{
 
   #mediaLinks>a{
     width:20%;
+    display:flex;
+    justify-content:center;
   }
 
   #photoFrame{

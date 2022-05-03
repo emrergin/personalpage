@@ -95,7 +95,7 @@ a{
 
     .album{
         grid-template-rows: auto;
-        height:auto;
+        height:100%;
     }
 }
 </style>
