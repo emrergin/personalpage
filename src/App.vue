@@ -30,11 +30,8 @@ onMounted(() => {
   if (window.innerWidth < 1000) {
     let metin=document.getElementById(`welcomeText`);
     document.getElementById(`photoFrame`).after(metin);
-    let appHeight=document.getElementById(`app`).offsetHeight+2.2*document.getElementById(`textIlkSatir`).offsetHeight;
-    document.getElementById(`app`).style.height=`${appHeight}px`;
-  }
-  else{
-    document.getElementById(`app`).style.height=`auto`;
+    // let appHeight=document.getElementById(`app`).offsetHeight+2.2*document.getElementById(`textIlkSatir`).offsetHeight;
+    // document.getElementById(`app`).style.height=`${appHeight}px`;
   }
   if (navigator.language===`tr-TR`){
     isTurkish.value=true;
@@ -45,13 +42,10 @@ function textPlacer(){
   if (window.innerWidth < 1000) {
     let metin=document.getElementById(`welcomeText`);
     document.getElementById(`photoFrame`).after(metin);
-    let appHeight=document.getElementById(`app`).offsetHeight+2.2*document.getElementById(`textIlkSatir`).offsetHeight;;
-    document.getElementById(`app`).style.height=`${appHeight}px`;
   }
   else{
     let metin=document.getElementById(`welcomeText`);
     document.getElementById(`mainContent`).before(metin);
-    document.getElementById(`app`).style.height=`auto`;
   }
 }
 </script>
@@ -368,7 +362,7 @@ svg,path{
     -ms-transform: translateY(0%);
     transform: translateY(0%);
     border:0px;
-    height: auto;
+    height: 620px;
     grid-template-columns:3fr 7fr ;
     grid-template-rows: 1fr;
     position:relative;
@@ -419,8 +413,8 @@ svg,path{
     display:flex;
     flex-direction:column;
     justify-content: stretch;
-    height: 100px;
-    padding-bottom: 200px;
+    height: 200px;
+    /* padding-bottom: 200px; */
   }
 
   #mediaLinks{
