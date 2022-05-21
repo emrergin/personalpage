@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="card2">
-        <img src="../assets/atolye.png" alt="Ateliler"/>
+        <img src="../assets/atolye.png" alt="Literature Workshop"/>
         <div class="cardText">
             <a href="https://atolye.herokuapp.com/"
             target="_blank"
@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="card2">
-        <img src="../assets/czk.png" alt="Sketch"/>
+        <img src="../assets/czk.png" alt="Etch a Sketch"/>
         <div class="cardText">
             <a href="https://emrergin.github.io/etch-a-sketch/"
             target="_blank"
@@ -46,7 +46,7 @@
         </div>
     </div>
     <div class="card2">
-        <img src="../assets/hsb.png" alt="Calc"/>
+        <img src="../assets/hsb.png" alt="Calculator"/>
         <div class="cardText">
             <a href="https://emrergin.github.io/hasib"
             target="_blank"

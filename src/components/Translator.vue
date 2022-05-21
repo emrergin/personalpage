@@ -6,12 +6,12 @@
     </h1>
     <div class="card">
         <a href="https://www.hepsiburada.com/sagduyulu-yatirim-rehberi-emre-ergin-p-HBCV00000UHQYP" target="_blank">
-            <img src="../assets/syr.jpg" alt="Sagduyu"/>
+            <img src="../assets/syr.jpg" alt="The Little Book of Common Sense Investing"/>
         </a>
     </div>
     <div class="card">
         <a href="https://rayfowler.itch.io/remnants-of-the-precursors" target="_blank">
-            <img src="../assets/rop.jpg" alt="Remnants" class="genisImg"/>
+            <img src="../assets/rop.jpg" alt="Remnants of The Precursors" class="genisImg"/>
         </a>
     </div>
     <div class="card">

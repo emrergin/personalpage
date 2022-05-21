@@ -13,6 +13,7 @@ import twitterIcon from '@iconify-icons/mdi/twitter';
 const bakilan=ref(0);
 const zaman1=ref(false);
 const zaman2=ref(false);
+// const idleT=ref(false);
 const isTurkish=ref(false);
 
 let icons={
@@ -25,6 +26,15 @@ let icons={
 onMounted(() => {
   setTimeout(() =>zaman1.value=true, 1000);
   setTimeout(() =>zaman2.value=true, 2500);
+  let idleTimer = setInterval(() =>{
+    if (bakilan.value===0){
+      bakilan.value=Math.floor(Math.random() * 4) + 1;
+    } else{
+      bakilan.value++;
+      bakilan.value=(bakilan.value-1)%4+1;
+    }
+  }
+  , 5000);
 
   window.addEventListener("resize", textPlacer);
   if (window.innerWidth < 1000) {
@@ -85,19 +95,23 @@ function textPlacer(){
         <img alt="My Face" src="./assets/proPic.png" />
     </div>
     <div id="drawer">
-      <div class="drawerItem d1"  @mouseover="bakilan= 1" @click="bakilan= 1" :class="{ highLight: bakilan===1 }"> 
+      <div class="drawerItem d1"  @mouseover="bakilan= 1" @click="bakilan= 1;clearInterval(idleTimer);" 
+          :class="{ highLight: bakilan===1 }"> 
         <span v-if="!isTurkish">An Author</span> 
         <span v-else>Yazar</span>
       </div>
-      <div class="drawerItem d2"  @mouseover="bakilan= 2" @click="bakilan= 2" :class="{ highLight: bakilan===2 }"> 
+      <div class="drawerItem d2"  @mouseover="bakilan= 2" @click="bakilan= 2;clearInterval(idleTimer);" 
+          :class="{ highLight: bakilan===2 }"> 
         <span v-if="!isTurkish">A Translator</span>
         <span v-else>Çevirmen</span>
       </div>
-      <div class="drawerItem d3"  @mouseover="bakilan= 3" @click="bakilan= 3" :class="{ highLight: bakilan===3 }"> 
+      <div class="drawerItem d3"  @mouseover="bakilan= 3" @click="bakilan= 3;clearInterval(idleTimer);" 
+          :class="{ highLight: bakilan===3 }"> 
         <span v-if="!isTurkish">A Web Developer</span>
         <span v-else>Web Geliştiricisi</span>
       </div>
-      <div class="drawerItem d4"  @mouseover="bakilan= 4" @click="bakilan= 4" :class="{ highLight: bakilan===4 }"> 
+      <div class="drawerItem d4"  @mouseover="bakilan= 4" @click="bakilan= 4;clearInterval(idleTimer);" 
+          :class="{ highLight: bakilan===4 }"> 
         <span v-if="!isTurkish">An Academic</span>
         <span v-else class="kucukYazi2">Akademisyen</span>
       </div>
@@ -144,7 +158,8 @@ body{
   margin:0px;  
   background-color: var(--renk3);
   height: 100vh;
-  overflow: hidden !important;
+  overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction:column;
 }
@@ -414,7 +429,6 @@ svg,path{
     flex-direction:column;
     justify-content: stretch;
     height: 200px;
-    /* padding-bottom: 200px; */
   }
 
   #mediaLinks{
