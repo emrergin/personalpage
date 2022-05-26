@@ -28,6 +28,23 @@
             </a>
         </div>
     </div>
+        <div class="card2">
+        <img src="../assets/soc.jpg" alt="Voting rules"/>
+        <div class="cardText">
+            <a href="https://emrergin.github.io/socialchoice/"
+            target="_blank"
+            >
+                <span v-if="!isTurkish"> Live</span>
+                <span v-else> Link</span>
+            </a>
+            <a href="https://github.com/emrergin/socialchoice"
+            target="_blank"
+            >
+                <span v-if="!isTurkish"> Repo</span>
+                <span v-else> Kodlar</span>
+            </a>
+        </div>
+    </div>
     <div class="card2">
         <img src="../assets/czk.png" alt="Etch a Sketch"/>
         <div class="cardText">
@@ -73,12 +90,14 @@ const props = defineProps(['isTurkish']);
 <style>
 .card2{
     position: relative;
+    margin-top:2vh;    
 }
 
 .card2>img{
-    object-fit: contain;
+    object-fit: cover;
     height: 10vw;
     width: 10vw;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 .card2:hover>img{
     filter:brightness(0.8) blur(2px) saturate(0.1);
