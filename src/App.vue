@@ -25,8 +25,8 @@ let icons={
 			};
 
 onMounted(() => {
-  let appHeight=document.getElementById(`app`).offsetHeight+2.2*document.getElementById(`textIlkSatir`).offsetHeight;
-  document.getElementById(`app`).style.height=`${appHeight}px`;
+  // let appHeight=document.getElementById(`app`).offsetHeight+2.2*document.getElementById(`textIlkSatir`).offsetHeight;
+  // document.getElementById(`app`).style.height=`${appHeight}px`;
   setTimeout(() =>zaman1.value=true, 1000);
   setTimeout(() =>zaman2.value=true, 2500);
   idleTimer = setInterval(() =>{
@@ -43,8 +43,6 @@ onMounted(() => {
   if (window.innerWidth < 1000) {
     let metin=document.getElementById(`welcomeText`);
     document.getElementById(`photoFrame`).after(metin);
-    // let appHeight=document.getElementById(`app`).offsetHeight+2.2*document.getElementById(`textIlkSatir`).offsetHeight;
-    // document.getElementById(`app`).style.height=`${appHeight}px`;
   }
   if (navigator.language===`tr-TR`){
     isTurkish.value=true;
@@ -52,6 +50,8 @@ onMounted(() => {
 })
 
 function textPlacer(){
+  // let appHeight=document.getElementById(`app`).offsetHeight+2.2*document.getElementById(`textIlkSatir`).offsetHeight;
+  // document.getElementById(`app`).style.height=`${appHeight}px`;
   if (window.innerWidth < 1000) {
     let metin=document.getElementById(`welcomeText`);
     document.getElementById(`photoFrame`).after(metin);
@@ -216,11 +216,15 @@ body{
   transition: opacity 0.5s ease-in;
 }
 
+#welcomeText{
+  height: 12em;
+}
+
 #mainContent{
   position: relative;
   display:flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -444,9 +448,9 @@ svg,path{
   }
 
   #mediaLinks{
-    margin-top:auto;
+    /* margin-top:auto; */
     width:100%;
-    justify-self:flex-end;
+    align-self:flex-end;
   }
 
   .d1,.d2,.d3,.d4{
@@ -466,7 +470,7 @@ svg,path{
     height: calc(33vw - 30px);
     width: calc(33vw - 30px);  
     position: static;
-    margin: auto; 
+    margin: 0px auto;  
     z-index: 10;
     box-shadow: 0px min(1vw,5px) min(1vw,5px);
   }
