@@ -1,8 +1,8 @@
 <template>
 <div class="album2">
     <h1 >
-        <span v-if="!isTurkish"> Articles</span>
-        <span v-else>Makaleler</span>
+        <span v-if="!isTurkish"> Publications</span>
+        <span v-else>Yayınlar</span>
     </h1>
 
 <a href="https://link.springer.com/content/pdf/10.1007/s00199-020-01312-x.pdf" 
@@ -17,6 +17,12 @@
     <span v-if="!isTurkish"> The collective sectoral multipliers of the European Union</span>
     <span v-else>Avrupa Birliği'nin Kolektif Sektörel Çarpanları</span>
 </a>    
+<a href="https://cris.maastrichtuniversity.nl/en/publications/strategic-voting-and-social-welfare-rules" 
+    target="_blank"
+    class="drawerItem article">
+    <span v-if="!isTurkish"> Strategic voting and social welfare rules</span>
+    <span v-else>Stratejik Oy Verme ve Sosyal Refah Kuralları</span>
+</a>   
 
 <h1  class="kucukYazi">
     <span v-if="!isTurkish"> Current and Past Affiliations</span>
@@ -60,7 +66,7 @@ const props = defineProps(['isTurkish']);
 .album2{
     display:grid;
     grid-template-columns:1fr;
-    grid-template-rows: 1fr 1.5fr 1.5fr 1fr 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr;
+    grid-template-rows: 1fr 1.5fr 1.5fr 1.5fr 1fr 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr;
     height:100%;
     overflow: auto;
     align-items: center;

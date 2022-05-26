@@ -13,7 +13,6 @@ import twitterIcon from '@iconify-icons/mdi/twitter';
 const bakilan=ref(0);
 const zaman1=ref(false);
 const zaman2=ref(false);
-// const idleT=ref(false);
 const isTurkish=ref(false);
 let idleTimer=undefined;
 
@@ -25,8 +24,6 @@ let icons={
 			};
 
 onMounted(() => {
-  // let appHeight=document.getElementById(`app`).offsetHeight+2.2*document.getElementById(`textIlkSatir`).offsetHeight;
-  // document.getElementById(`app`).style.height=`${appHeight}px`;
   setTimeout(() =>zaman1.value=true, 1000);
   setTimeout(() =>zaman2.value=true, 2500);
   idleTimer = setInterval(() =>{
@@ -50,8 +47,6 @@ onMounted(() => {
 })
 
 function textPlacer(){
-  // let appHeight=document.getElementById(`app`).offsetHeight+2.2*document.getElementById(`textIlkSatir`).offsetHeight;
-  // document.getElementById(`app`).style.height=`${appHeight}px`;
   if (window.innerWidth < 1000) {
     let metin=document.getElementById(`welcomeText`);
     document.getElementById(`photoFrame`).after(metin);
@@ -206,7 +201,7 @@ body{
 #general{
   display:flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   height:100%;
   grid-column-start: 2;
   grid-column-end: 3;
@@ -298,16 +293,14 @@ body{
 
 #mediaLinks{
   display:flex;
-  gap: 1vh;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items:center;
+  width: max(40% ,150px);
 }
 
 #mediaLinks>a{
   color:var(--renk4);
   display: flex;
-  justify-content: stretch;
-  align-items:stretch;
 }
 
 #mediaLinks>a:hover{
@@ -394,10 +387,7 @@ svg,path{
     transform: translateY(0%);
     border:0px;
     height: 620px;
-    grid-template-columns:3fr 7fr ;
-    grid-template-rows: 1fr;
-    position:relative;
-    width:100vw;
+    grid-template-columns:3fr 7fr;
   }
 
   .noBorder,.sagBorder,.solBorder{
@@ -409,12 +399,10 @@ svg,path{
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 2;
-    display:flex;
     justify-content:flex-start;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     width:33vw;
-    height:100%;
   }
 
   #mainContent{
@@ -434,51 +422,38 @@ svg,path{
     grid-row-end: 2;
   }
   body{
-    overflow-y: auto ;
-    display:flex;
-    flex-direction: column;
     height: auto;
     width:100vw;
   }
   #drawer{
     display:flex;
     flex-direction:column;
-    justify-content: stretch;
     height: 200px;
   }
 
   #mediaLinks{
-    /* margin-top:auto; */
+    margin-top:auto;
     width:100%;
-    align-self:flex-end;
+    /* align-self:flex-end; */
+    justify-content:space-evenly;
   }
 
   .d1,.d2,.d3,.d4{
     text-align:center;
   }
 
-  #mediaLinks>a{
-    width:20%;
-    display:flex;
-    justify-content:center;
-  }
-
   #photoFrame{
     border: var(--renk1) solid 15px;
-    border-radius: 50%;
-    overflow: clip;
     height: calc(33vw - 30px);
     width: calc(33vw - 30px);  
     position: static;
-    margin: 0px auto;  
-    z-index: 10;
+    /* margin: auto auto;   */
     box-shadow: 0px min(1vw,5px) min(1vw,5px);
   }
 
   #photoFrame > img{
     height: calc(33vw - 30px);
     width: calc(33vw - 30px);  
-    object-fit: cover;
   }
 
   .solTaraf-enter-from,

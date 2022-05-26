@@ -109,7 +109,7 @@ const props = defineProps(['isTurkish']);
     left: 50%;
     transform: translate(-50%, -50%) scale(0.01);
     transition: all 0.5s ease-in;
-    font-size:1.75vmin;
+    font-size:1.5em;
     text-shadow: 0.2vmin 0.2vmin 0.4vmin var(--renk4), 0px 0px 1.4vmin var(--renk5);
     display:flex;
     flex-direction: column;
