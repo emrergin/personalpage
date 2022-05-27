@@ -6,7 +6,7 @@
     </h1>
     <div class="card2">
         <img src="../assets/pru.png" alt="Risk Testing"/>
-        <div class="cardText kucukYazi2">            
+        <div class="cardText">            
             <span v-if="!isTurkish"> Public repo is incoming...</span>
             <span v-else>Yapım aşamasında...</span>
         </div>
@@ -113,6 +113,8 @@ const props = defineProps(['isTurkish']);
     text-shadow: 0.2vmin 0.2vmin 0.4vmin var(--renk4), 0px 0px 1.4vmin var(--renk5);
     display:flex;
     flex-direction: column;
+    /* justify-content:center; */
+    align-items: center;
     gap: 2vmin;
     font-weight: bold;
     filter:saturate(3);

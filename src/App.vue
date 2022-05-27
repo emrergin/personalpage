@@ -75,7 +75,7 @@ function drawerSelect(integer){
   {solBorder:(bakilan===1||bakilan===2)},
   {sagBorder:(bakilan===3||bakilan===4)},
   {noBorder: !bakilan}]">
-  <div id="welcomeText">
+  <div id="welcomeText" :class="{ turkceWelcome: isTurkish}">
     <h1 id="textIlkSatir"> 
       <span v-if="!isTurkish">Hello!</span>
       <span v-else>Selam!</span>
@@ -409,6 +409,11 @@ svg,path{
     width:100%;
     height:100%;
   }
+
+  #welcomeText.turkceWelcome{
+    height: 14em;
+  }
+
 
 
   #emailButton{
