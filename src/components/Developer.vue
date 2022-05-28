@@ -7,8 +7,18 @@
     <div class="card2">
         <img src="../assets/pru.png" alt="Risk Testing"/>
         <div class="cardText">            
-            <span v-if="!isTurkish"> Public repo is incoming...</span>
-            <span v-else>Yapım aşamasında...</span>
+           <a href="https://emrergin.github.io/prudencetemperance/"
+            target="_blank"
+            >
+                <span v-if="!isTurkish"> Live</span>
+                <span v-else> Link</span>
+            </a>
+            <a href="https://github.com/emrergin/prudencetemperance"
+            target="_blank"
+            >
+                <span v-if="!isTurkish"> Repo</span>
+                <span v-else> Kodlar</span>
+            </a>
         </div>
     </div>
     <div class="card2">
