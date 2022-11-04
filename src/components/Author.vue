@@ -1,7 +1,7 @@
 <template>
 <div class="album">
     <h1 id="tabloBaslik">        
-        <span v-if="!isTurkish"> Books</span>
+        <span v-if="!isTurkish">Books</span>
         <span v-else>Kitaplar</span>
     </h1>
     <div class="card">
