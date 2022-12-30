@@ -41,7 +41,7 @@ onMounted(() => {
     let metin=document.getElementById(`welcomeText`);
     document.getElementById(`photoFrame`).after(metin);
   }
-  if (navigator.language===`tr-TR`){
+  if (navigator.language===`tr-TR` || navigator.language === `tr`){
     isTurkish.value=true;
   }
 })
